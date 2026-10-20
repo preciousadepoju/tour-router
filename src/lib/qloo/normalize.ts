@@ -72,17 +72,23 @@ function toPlace(e: QlooEntity): PlaceSummary {
   };
 }
 
-/**
- * Splits one city's place results into venue-type places and after-show spots, using tag
- * and name keywords. A place matching both lists counts as a venue.
- */
+function classify(e: QlooEntity): "venue" | "food" | null {
+  // Tags are more reliable than names ("Supper Club" is a restaurant), so they decide first.
+  for (const text of [(e.tags ?? []).map((t) => t.name).join(" "), e.name]) {
+    if (VENUE_WORDS.test(text)) return "venue";
+    if (FOOD_WORDS.test(text)) return "food";
+  }
+  return null;
+}
+
+/** Splits one city's place results into venue-type places and after-show spots. */
 export function splitPlaces(res: QlooInsightsResponse, max = 3): { venues: PlaceSummary[]; afterShow: PlaceSummary[] } {
   const venues: PlaceSummary[] = [];
   const afterShow: PlaceSummary[] = [];
   for (const e of res.results?.entities ?? []) {
-    const text = `${e.name} ${(e.tags ?? []).map((t) => t.name).join(" ")}`;
-    if (VENUE_WORDS.test(text) && venues.length < max) venues.push(toPlace(e));
-    else if (FOOD_WORDS.test(text) && afterShow.length < max) afterShow.push(toPlace(e));
+    const kind = classify(e);
+    if (kind === "venue" && venues.length < max) venues.push(toPlace(e));
+    else if (kind === "food" && afterShow.length < max) afterShow.push(toPlace(e));
   }
   return { venues, afterShow };
 }

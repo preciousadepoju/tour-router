@@ -62,6 +62,22 @@ describe("sample adapter", () => {
     expect(venues.some((v) => afterShow.some((a) => a.id === v.id))).toBe(false);
   });
 
+  it("classifies by tags before names", () => {
+    const res = {
+      success: true,
+      results: {
+        entities: [
+          { entity_id: "a", name: "Supper Club", tags: [{ name: "Restaurant" }] },
+          { entity_id: "b", name: "The Garage", tags: [{ name: "Music Venue" }] },
+          { entity_id: "c", name: "Corner Bar" },
+        ],
+      },
+    };
+    const { venues, afterShow } = splitPlaces(res);
+    expect(venues.map((v) => v.id)).toEqual(["b"]);
+    expect(afterShow.map((v) => v.id)).toEqual(["a", "c"]);
+  });
+
   it("returns similar artists and demographics", async () => {
     const similar = await qloo.insights({ "filter.type": "urn:entity:artist", "signal.interests.entities": "SAMPLE-ARTIST-TYLA" });
     expect(similar.results.entities?.[0]?.name).toBe("Uncle Waffles");

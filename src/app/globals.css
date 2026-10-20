@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/*
+ * Tour Router is a single dark "backstage" theme: ink surfaces, paper text, one stage-light
+ * accent. Data colors are separate tokens (validated for the dark surface) so UI accent and
+ * chart encoding never get mixed up.
+ */
+@theme {
+  --color-ink: #0c0b09;
+  --color-ink-2: #17150f;
+  --color-ink-3: #221f18;
+  --color-line: #2f2b22;
+  --color-paper: #f3ede2;
+  --color-paper-2: #c9c1b2;
+  --color-paper-3: #8d8676;
+  --color-stage: #ff5b2e;
+  --color-stage-soft: #ff5b2e1f;
+  --color-tape: #f5c518;
+
+  --color-data-hi: #e8643a;
+  --color-data-rest: #6b665d;
+  --color-data-pos: #3987e5;
+  --color-data-neg: #e66767;
+  --color-data-mid: #383835;
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* faint stage-light glow + grain so the page doesn't read as a flat template */
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, #ff5b2e14, transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, #f5c51808, transparent 60%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--color-stage);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-stage);
+  outline-offset: 2px;
+}
+
+/* Hazard tape for the sample-data banner */
+.tape {
+  background: repeating-linear-gradient(-45deg, var(--color-tape) 0 14px, #1b1708 14px 28px);
+}
+
+/* Dark map from standard OpenStreetMap tiles: invert the tile layer only. */
+.map-dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.4);
+}
+.leaflet-container {
+  background: var(--color-ink-2);
+  font-family: var(--font-sans);
+}
+.leaflet-control-attribution {
+  background: #0c0b09cc !important;
+  color: var(--color-paper-3) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--color-paper-2) !important;
+}
+.leaflet-bar a {
+  background: var(--color-ink-2) !important;
+  color: var(--color-paper) !important;
+  border-color: var(--color-line) !important;
+}
+
+.stop-pin {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  font: 700 13px/1 var(--font-mono);
+  color: var(--color-ink);
+  background: var(--color-stage);
+  box-shadow: 0 0 0 2px var(--color-ink), 0 0 0 4px #ff5b2e55, 0 6px 20px #ff5b2e66;
+}
+.stop-pin.muted {
+  background: var(--color-paper-2);
+  box-shadow: 0 0 0 2px var(--color-ink);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+.pulse-dot {
+  animation: pulse-dot 1.1s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.rise {
+  animation: rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot, .rise { animation: none; }
+}
