@@ -1,0 +1,61 @@
+{
+  "_note": "SYNTHETIC sample data for offline development. Not real Qloo output; numbers are invented.",
+  "search": {
+    "tems": [
+      { "entity_id": "SAMPLE-ALBUM-BORN-IN-THE-WILD", "name": "Born in the Wild", "types": ["urn:entity:album"], "popularity": 0.93 },
+      { "entity_id": "SAMPLE-ARTIST-TEMS", "name": "Tems", "types": ["urn:entity:artist"], "popularity": 0.96, "properties": { "short_description": "Nigerian singer-songwriter" } },
+      { "entity_id": "SAMPLE-ARTIST-TEMZ", "name": "Temz", "types": ["urn:entity:artist"], "popularity": 0.41, "properties": { "short_description": "Different artist with a similar name" } }
+    ],
+    "asake": [
+      { "entity_id": "SAMPLE-ARTIST-ASAKE", "name": "Asake", "types": ["urn:entity:artist"], "popularity": 0.94, "properties": { "short_description": "Nigerian Afrobeats and Amapiano-fusion artist" } },
+      { "entity_id": "SAMPLE-ALBUM-WORK-OF-ART", "name": "Work of Art", "types": ["urn:entity:album"], "popularity": 0.88 }
+    ],
+    "tyla": [
+      { "entity_id": "SAMPLE-ARTIST-TYLA", "name": "Tyla", "types": ["urn:entity:artist"], "popularity": 0.95, "properties": { "short_description": "South African singer, popiano" } }
+    ]
+  },
+  "profiles": {
+    "SAMPLE-ARTIST-TEMS": {
+      "regionBias": { "us": 0.62, "europe": 0.6, "africa": 0.74 },
+      "cityBias": { "los": 0.95, "lon": 0.92, "acc": 0.86, "atl": 0.84, "hou": 0.8, "nyc": 0.82, "par": 0.7, "lax": 0.74, "dc": 0.78, "man": 0.72, "jnb": 0.66, "ams": 0.64, "abv": 0.79, "nbo": 0.68, "tor": 0.7 },
+      "similar": [
+        { "entity_id": "SAMPLE-ARTIST-AYRA", "name": "Ayra Starr", "popularity": 0.9, "query": { "affinity": 0.91 } },
+        { "entity_id": "SAMPLE-ARTIST-OMAH", "name": "Omah Lay", "popularity": 0.87, "query": { "affinity": 0.89 } },
+        { "entity_id": "SAMPLE-ARTIST-SAMPHA", "name": "Sampha", "popularity": 0.78, "query": { "affinity": 0.83 } },
+        { "entity_id": "SAMPLE-ARTIST-AMAARAE", "name": "Amaarae", "popularity": 0.76, "query": { "affinity": 0.81 } },
+        { "entity_id": "SAMPLE-ARTIST-CKAY", "name": "CKay", "popularity": 0.8, "query": { "affinity": 0.79 } },
+        { "entity_id": "SAMPLE-ARTIST-SZA", "name": "SZA", "popularity": 0.97, "query": { "affinity": 0.74 } }
+      ],
+      "demographics": { "age": { "24_and_younger": 0.31, "25_to_29": 0.38, "30_to_34": 0.12, "35_to_44": -0.18, "45_to_54": -0.36, "55_and_older": -0.52 }, "gender": { "female": 0.34, "male": -0.21 } }
+    },
+    "SAMPLE-ARTIST-ASAKE": {
+      "regionBias": { "us": 0.55, "europe": 0.66, "africa": 0.82 },
+      "cityBias": { "los": 0.97, "lon": 0.93, "acc": 0.84, "abv": 0.86, "man": 0.78, "bhm": 0.76, "hou": 0.74, "atl": 0.72, "dub": 0.66, "jnb": 0.72, "nbo": 0.7, "ams": 0.6, "par": 0.62 },
+      "similar": [
+        { "entity_id": "SAMPLE-ARTIST-OLAMIDE", "name": "Olamide", "popularity": 0.86, "query": { "affinity": 0.93 } },
+        { "entity_id": "SAMPLE-ARTIST-SEYI", "name": "Seyi Vibez", "popularity": 0.74, "query": { "affinity": 0.9 } },
+        { "entity_id": "SAMPLE-ARTIST-REMA", "name": "Rema", "popularity": 0.92, "query": { "affinity": 0.86 } },
+        { "entity_id": "SAMPLE-ARTIST-FIREBOY", "name": "Fireboy DML", "popularity": 0.85, "query": { "affinity": 0.84 } },
+        { "entity_id": "SAMPLE-ARTIST-KABZA", "name": "Kabza De Small", "popularity": 0.71, "query": { "affinity": 0.77 } }
+      ],
+      "demographics": { "age": { "24_and_younger": 0.42, "25_to_29": 0.29, "30_to_34": 0.04, "35_to_44": -0.22, "45_to_54": -0.41, "55_and_older": -0.6 }, "gender": { "female": 0.06, "male": 0.09 } }
+    },
+    "SAMPLE-ARTIST-TYLA": {
+      "regionBias": { "us": 0.7, "europe": 0.63, "africa": 0.72 },
+      "cityBias": { "jnb": 0.96, "cpt": 0.86, "dur": 0.84, "lon": 0.88, "nyc": 0.86, "lax": 0.85, "atl": 0.8, "mia": 0.78, "par": 0.72, "ams": 0.7, "los": 0.8, "nbo": 0.7, "ber": 0.62 },
+      "similar": [
+        { "entity_id": "SAMPLE-ARTIST-UNCLEWAFFLES", "name": "Uncle Waffles", "popularity": 0.74, "query": { "affinity": 0.9 } },
+        { "entity_id": "SAMPLE-ARTIST-AYRA", "name": "Ayra Starr", "popularity": 0.9, "query": { "affinity": 0.86 } },
+        { "entity_id": "SAMPLE-ARTIST-NASTYC", "name": "Nasty C", "popularity": 0.79, "query": { "affinity": 0.8 } },
+        { "entity_id": "SAMPLE-ARTIST-DJMAPHORISA", "name": "DJ Maphorisa", "popularity": 0.72, "query": { "affinity": 0.79 } },
+        { "entity_id": "SAMPLE-ARTIST-NORMANI", "name": "Normani", "popularity": 0.83, "query": { "affinity": 0.72 } }
+      ],
+      "demographics": { "age": { "24_and_younger": 0.47, "25_to_29": 0.26, "30_to_34": -0.02, "35_to_44": -0.27, "45_to_54": -0.44, "55_and_older": -0.61 }, "gender": { "female": 0.41, "male": -0.28 } }
+    }
+  },
+  "genericSimilar": [
+    { "entity_id": "SAMPLE-ARTIST-GENERIC-1", "name": "Sample Opener One", "popularity": 0.6, "query": { "affinity": 0.82 } },
+    { "entity_id": "SAMPLE-ARTIST-GENERIC-2", "name": "Sample Opener Two", "popularity": 0.55, "query": { "affinity": 0.78 } },
+    { "entity_id": "SAMPLE-ARTIST-GENERIC-3", "name": "Sample Opener Three", "popularity": 0.5, "query": { "affinity": 0.74 } }
+  ]
+}

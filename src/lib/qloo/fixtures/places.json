@@ -1,0 +1,20 @@
+{
+  "_note": "SYNTHETIC name templates for sample mode. {city} is replaced with the city name.",
+  "venues": [
+    { "name": "{city} Live Room", "tags": ["Music Venue", "Live Music"] },
+    { "name": "The Sample Hall {city}", "tags": ["Concert Hall", "Music Venue"] },
+    { "name": "Northside Sound Club", "tags": ["Nightclub", "Live Music"] },
+    { "name": "{city} Rooftop Stage", "tags": ["Music Venue", "Rooftop Bar"] },
+    { "name": "Old Mill Theatre", "tags": ["Theater", "Live Music"] },
+    { "name": "Basement 9", "tags": ["Nightclub", "Dance Club"] }
+  ],
+  "afterShow": [
+    { "name": "Jollof & Jazz Kitchen", "tags": ["Restaurant", "West African"] },
+    { "name": "Late Bloom Cocktail Bar", "tags": ["Cocktail Bar", "Lounge"] },
+    { "name": "{city} Supper Club", "tags": ["Restaurant", "Late Night"] },
+    { "name": "Ember Grill House", "tags": ["Restaurant", "Grill"] },
+    { "name": "Velvet Lounge", "tags": ["Lounge", "Bar"] },
+    { "name": "Night Market Canteen", "tags": ["Restaurant", "Street Food"] },
+    { "name": "Golden Hour Wine Bar", "tags": ["Wine Bar", "Bar"] }
+  ]
+}
